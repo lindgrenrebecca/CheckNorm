@@ -1,7 +1,7 @@
 #' Run All Statistical Tests and Visual Checks for Data Normality
 #'
 #' This function combines both statistical tests and visual checks to provide a comprehensive evaluation of the data's normality.
-#' It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests, followed by QQ plot, density plot, and histogram.
+#' It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests, followed by providing a QQ plot, density plot, and histogram.
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'

@@ -11,6 +11,13 @@ sw <- function(x){
     stop("Input x must be a numeric vector.")
   }
 
+
+  # Remove missing values and warn user if any were removed
+  x_clean <- na.omit(x)
+  if (length(x) > length(x_clean)) {
+    warning("Missing values detected and removed from the data.")
+  }
+
   result <- shapiro.test(x)
 
   interpretation <- if (result$p.value < 0.05) {

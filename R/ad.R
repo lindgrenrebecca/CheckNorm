@@ -1,8 +1,8 @@
 #' Anderson-Darling Test for Normality
 #'
-#' @param x Must be a numeric vector.
+#' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
-#' @return A list containing the test result.
+#' @return A list containing the test result and interpretation aid.
 #' @export
 #'
 ad <- function(x) {
@@ -13,6 +13,13 @@ ad <- function(x) {
 
   if (!requireNamespace("nortest", quietly = TRUE)) {
     stop("The 'nortest' package is required but not installed.")
+  }
+
+
+  # Remove missing values and warn user if any were removed
+  x_clean <- na.omit(x)
+  if (length(x) > length(x_clean)) {
+    warning("Missing values detected and removed from the data.")
   }
 
   ad_result <- nortest::ad.test(x)

@@ -7,10 +7,10 @@
 ad(x)
 }
 \arguments{
-\item{x}{Must be a numeric vector.}
+\item{x}{Must be a numeric vector of data values (missing values will be removed automatically).}
 }
 \value{
-A list containing the test result.
+A list containing the test result and interpretation aid.
 }
 \description{
 Anderson-Darling Test for Normality
