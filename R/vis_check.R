@@ -1,6 +1,6 @@
 #' Visual Checks for Data Normality
 #'
-#' This function provides a variety of visual checks to help users evaluate the normality of a numeric vector.
+#' This function provides a variety of visual checks to help users evaluate the normality of data.
 #' Users can specify which plot to view (e.g., QQ plot, density plot, or histogram) or request all of them.
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
@@ -32,7 +32,4 @@ visual_check <- function(x, plot = "all") {
   if (plot == "all" || "hist" %in% plot) {
     normhist(x_clean)
   }
-
-  # Return invisible results (plots are already printed)
-  invisible(NULL)
 }

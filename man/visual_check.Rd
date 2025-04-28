@@ -16,6 +16,6 @@ visual_check(x, plot = "all")
 A series of plots and helpful interpretations for understanding data normality.
 }
 \description{
-This function provides a variety of visual checks to help users evaluate the normality of a numeric vector.
+This function provides a variety of visual checks to help users evaluate the normality of data.
 Users can specify which plot to view (e.g., QQ plot, density plot, or histogram) or request all of them.
 }

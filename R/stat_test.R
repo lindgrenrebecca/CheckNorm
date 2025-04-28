@@ -56,7 +56,7 @@ stat_test <- function(x, test = "all", suppress_message = F) {
   }
 
   # Interpretation
-  message("Based on the results of the following tests:")
+  message("Based on the results of the following test(s):")
 
   for (test_name in names(test_results)) {
     p_value <- test_results[[test_name]]$p.value
