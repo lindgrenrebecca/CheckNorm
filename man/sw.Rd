@@ -2,16 +2,16 @@
 % Please edit documentation in R/sw.R
 \name{sw}
 \alias{sw}
-\title{User-Friendly Shapiro Wilk Test}
+\title{Shapiro-Wilk Test}
 \usage{
 sw(x)
 }
 \arguments{
-\item{x}{Must be a numeric vector}
+\item{x}{Must be a numeric vector of data values (missing values will be removed automatically).}
 }
 \value{
 A list of the test statistic, p-value, and interpretation aid.
 }
 \description{
-User-Friendly Shapiro Wilk Test
+Shapiro-Wilk Test
 }

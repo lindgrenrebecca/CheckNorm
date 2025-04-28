@@ -9,7 +9,7 @@
 #'
 #' @return A list containing the results of the requested tests and a friendly interpretation message.
 #' @export
-stat_test <- function(x, test = "all") {
+stat_test <- function(x, test = "all", suppress_message = F) {
 
   if (!is.numeric(x)) {
     stop("Input x must be a numeric vector.")
@@ -67,8 +67,9 @@ stat_test <- function(x, test = "all") {
     }
   }
 
-  message("Consider these results alongside visualizations for a more robust understanding of your data.")
-
+  if (!suppress_message) {
+    message("Consider these results alongside visualizations for a more robust understanding of your data.")
+  }
   # Return results invisibly so it doesn't print twice if assigned
   invisible(test_results)
 }

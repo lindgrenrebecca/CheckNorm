@@ -2,7 +2,7 @@
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
-#' @return A list containing the test result and interpretation aid.
+#' @return A list containing the test result, p-value, and interpretation aid.
 #' @export
 #'
 ad <- function(x) {
@@ -24,12 +24,17 @@ ad <- function(x) {
 
   ad_result <- nortest::ad.test(x)
 
-  print(ad_result)
+  # Interpretation
+  ad_p_value <- ad_result$p.value
+  if (ad_p_value > 0.05) {
+    message(paste("The Anderson-Darling test suggests the data follow a normal distribution (p-value =",
+                  round(ad_p_value, 4), ")."))
+  } else {
+    message(paste("The Anderson-Darling test suggests the data does not follow a normal distribution (p-value =",
+                  round(ad_p_value, 4), ")."))
+  }
 
-  message("If the p-value is greater than 0.05, this suggests the data may come from a normal distribution.
-The Anderson-Darling test gives additional weight to the tails of the distribution, making it sensitive to deviations in the extremes.
-The 'A' statistic represents the overall difference between the sample's cumulative distribution and a normal distribution, with higher values indicating a larger discrepancy.
-Consider using this test alongside other normality tests and visualizations.")
-
-  invisible(ad_result)
+return(list(
+  statistic = ad_result$statistic,
+  p_value = ad_result$p.value))
 }

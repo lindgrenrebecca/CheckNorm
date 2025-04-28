@@ -21,10 +21,13 @@ check_all <- function(x) {
 
   # Run all statistical tests
   message("Running statistical tests for normality:")
-  stat_test(x_clean, test = "all")
+  stat_test(x_clean, test = "all", suppress_message = T)
+
+  #Adding a blank line just for easier user reading (distinguishing between stat results and visual results)
+  message("")
 
   # Run all visual checks
-  message("Running visual checks for normality:")
+  message("Visualization interpretation aid:")
   visual_check(x_clean, plot = "all")
 
   invisible(NULL)

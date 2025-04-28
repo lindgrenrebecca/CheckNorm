@@ -7,10 +7,10 @@
 ks(x)
 }
 \arguments{
-\item{x}{Must be a numeric vector.}
+\item{x}{Must be a numeric vector of data values (missing values will be removed automatically).}
 }
 \value{
-A list containing the test result.
+A list containing the test result, p-value, and interpretation aid.
 }
 \description{
 Kolmogorov-Smirnov Test for Normality

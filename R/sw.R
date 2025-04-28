@@ -1,6 +1,6 @@
-#' User-Friendly Shapiro Wilk Test
+#' Shapiro-Wilk Test
 #'
-#' @param x Must be a numeric vector
+#' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
 #' @returns A list of the test statistic, p-value, and interpretation aid.
 #' @export
@@ -18,17 +18,22 @@ sw <- function(x){
     warning("Missing values detected and removed from the data.")
   }
 
-  result <- shapiro.test(x)
+  sw_result <- shapiro.test(x)
 
-  interpretation <- if (result$p.value < 0.05) {
-    "The results suggest the data are not normally distributed (p < 0.05)."
+  sw_p_value <- sw_result$p.value
+
+  sw_interpretation <- if (sw_p_value > 0.05) {
+    paste("The Shapiro-Wilk test suggests the data follow a normal distribution (p-value =",
+                  round(sw_p_value, 4), ").")
   } else {
-    "The data appears to be normally distributed (p ≥ 0.05)."
+    paste("The Shapiro-Wilk test suggests the data does not follow a normal distribution (p-value =",
+                  round(sw_p_value, 4), ").")
   }
 
+  message(sw_interpretation)
+
   return(list(
-    statistic = result$statistic,
-    p_value = result$p.value,
-    interpretation = interpretation
+    statistic = sw_result$statistic,
+    p_value = sw_result$p.value
   ))
 }

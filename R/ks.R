@@ -1,8 +1,8 @@
 #' Kolmogorov-Smirnov Test for Normality
 #'
-#' @param x Must be a numeric vector.
+#' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
-#' @return A list containing the test result.
+#' @return A list containing the test result, p-value, and interpretation aid.
 #' @export
 #'
 ks <- function(x) {
@@ -18,13 +18,24 @@ ks <- function(x) {
     warning("Missing values detected and removed from the data.")
   }
 
+  #Run KS test
   ks_result <- ks.test(x, "pnorm", mean(x), sd(x))
 
-  print(ks_result)
+  # Interpretation
+  ks_p_value <- ks_result$p.value
 
-  message("A p-value greater than 0.05 suggests the data may come from a normal distribution. The 'D' statistic represents the largest difference between the sample's cumulative distribution and a normal distribution.
-It ranges from 0 to 1 where a larger 'D' values indicate a greater deviation from normality.
-However, the K-S test is sensitive to sample size, so make sure to consider it alongside visualizations and other tests.")
+  ks_interpretation <- if (ks_p_value > 0.05) {
+    paste("The Kolmogorov-Smirnov Test suggests the data follow a normal distribution (p-value =",
+                  round(ks_p_value, 4), ").")
+  } else {
+    paste("The Kolmogorov-Smirnov Test suggests the data does not follow a normal distribution (p-value =",
+                  round(ks_p_value, 4), ").")
+  }
 
-  invisible(ks_result)
+ message(ks_interpretation)
+
+  return(list(
+    statistic = ks_result$statistic,
+    p_value = ks_result$p.value))
 }
+

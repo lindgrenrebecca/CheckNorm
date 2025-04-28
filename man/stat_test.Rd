@@ -4,7 +4,7 @@
 \alias{stat_test}
 \title{Statistical Normality Tests for Data}
 \usage{
-stat_test(x, test = "all")
+stat_test(x, test = "all", suppress_message = F)
 }
 \arguments{
 \item{x}{Must be a numeric vector of data values (missing values will be removed automatically).}
