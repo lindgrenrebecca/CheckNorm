@@ -19,3 +19,13 @@ A series of plots and helpful interpretations for understanding data normality.
 This function provides a variety of visual checks to help users evaluate the normality of data.
 Users can specify which plot to view (e.g., QQ plot, density plot, or histogram) or request all of them.
 }
+\examples{
+#Generate normal data
+data <- rnorm(100)
+#Plot all visualizations
+stat_test(data)
+
+#Plot only a density plot
+stat_test(data, plot = "density")
+
+}

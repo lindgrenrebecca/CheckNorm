@@ -15,3 +15,11 @@ A QQ-Plot
 \description{
 QQ-Plot
 }
+\examples{
+#Generate Data
+data <- rnorm(100)
+#Plot the QQ-Plot
+qqplot(data)
+
+
+}

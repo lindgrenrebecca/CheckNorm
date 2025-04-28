@@ -5,6 +5,14 @@
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
+#' @examples
+#' #Generate Data
+#' data <- rnorm(100)
+#' #Run all statistical and visual checks
+#' check_all(data)
+#'
+#'
+#'
 #' @return The results of the statistical tests and visualizations of data normality.
 #' @export
 check_all <- function(x) {

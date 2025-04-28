@@ -15,3 +15,12 @@ A density plot
 \description{
 Density Plot
 }
+\examples{
+#Generate Data
+data <- rnorm(100)
+#Plot density plot
+densplot(data)
+
+
+
+}

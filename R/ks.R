@@ -2,6 +2,14 @@
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
+#' @examples
+#' #Generate data
+#' data <- rnorm(100)
+#' #Run Kolmogorov-Smirnov Test
+#' ks(data)
+#'
+#'
+#'
 #' @return A list containing the test result, p-value, and interpretation aid.
 #' @export
 #'

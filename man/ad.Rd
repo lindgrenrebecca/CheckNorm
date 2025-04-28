@@ -15,3 +15,12 @@ A list containing the test result, p-value, and interpretation aid.
 \description{
 Anderson-Darling Test for Normality
 }
+\examples{
+#Generate Data
+data <- rnorm(100)
+#Run Anderson-Darling Test
+ad(data)
+
+
+
+}

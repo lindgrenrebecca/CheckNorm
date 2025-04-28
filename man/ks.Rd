@@ -15,3 +15,12 @@ A list containing the test result, p-value, and interpretation aid.
 \description{
 Kolmogorov-Smirnov Test for Normality
 }
+\examples{
+#Generate data
+data <- rnorm(100)
+#Run Kolmogorov-Smirnov Test
+ks(data)
+
+
+
+}

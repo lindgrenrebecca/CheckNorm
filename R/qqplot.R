@@ -3,9 +3,16 @@
 #' @param x Must be a numeric vector.
 #'
 #' @returns A QQ-Plot
-#' @export
 #'
 #' @examples
+#' #Generate Data
+#' data <- rnorm(100)
+#' #Plot the QQ-Plot
+#' qqplot(data)
+#'
+#'
+#' @export
+#'
 qqplot <- function(x) {
   if (!is.numeric(x)) {
     stop("Input x must be a numeric vector.")

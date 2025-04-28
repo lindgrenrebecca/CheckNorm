@@ -19,3 +19,13 @@ A list containing the results of the requested tests and a friendly interpretati
 This function performs multiple statistical tests to evaluate the normality of a numeric vector.
 It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests, based on the user's request.
 }
+\examples{
+# Generate normal data
+data <- rnorm(100)
+#Run all statistical tests
+stat_test(data)
+
+# Run only the Shapiro-Wilk test
+stat_test(data, test = "sw")
+
+}

@@ -2,6 +2,14 @@
 #'
 #' @param x Must be a numeric vector.
 #'
+#' @examples
+#' #Generate Data
+#' data <- rnorm(100)
+#' #Plot density plot
+#' densplot(data)
+#'
+#'
+#'
 #' @return A density plot
 #' @export
 densplot <- function(x) {

@@ -6,6 +6,14 @@
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #' @param test A character string specifying which test(s) to run. Defaults to "all". Can be "sw" for Shapiro-Wilk,
 #' "ks" for Kolmogorov-Smirnov, or "ad" for Anderson-Darling. You can specify multiple tests as a vector (e.g., c("sw", "ks")).
+#' @examples
+#'# Generate normal data
+#' data <- rnorm(100)
+#' #Run all statistical tests
+#' stat_test(data)
+#'
+#' # Run only the Shapiro-Wilk test
+#' stat_test(data, test = "sw")
 #'
 #' @return A list containing the results of the requested tests and a friendly interpretation message.
 #' @export

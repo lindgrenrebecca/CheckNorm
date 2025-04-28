@@ -2,6 +2,14 @@
 #'
 #' @param x Must be a numeric vector.
 #'
+#' @examples
+#' # Generate Data
+#' data <- rnorm(100)
+#' #Plot histogram
+#' normhist(data)
+#'
+#'
+#'
 #' @return A histogram with a normal curve.
 #' @export
 normhist <- function(x) {

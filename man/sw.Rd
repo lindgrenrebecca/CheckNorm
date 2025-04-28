@@ -15,3 +15,11 @@ A list of the test statistic, p-value, and interpretation aid.
 \description{
 Shapiro-Wilk Test
 }
+\examples{
+#Generate data
+data <-rnorm(100)
+#Run Shapiro-Wilk Test
+sw(data)
+
+
+}

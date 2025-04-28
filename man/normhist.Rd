@@ -15,3 +15,12 @@ A histogram with a normal curve.
 \description{
 Histogram with Normal Curve Overlay
 }
+\examples{
+# Generate Data
+data <- rnorm(100)
+#Plot histogram
+normhist(data)
+
+
+
+}

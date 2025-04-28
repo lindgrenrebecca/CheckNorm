@@ -2,10 +2,17 @@
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
+#' @examples
+#' #Generate data
+#' data <-rnorm(100)
+#' #Run Shapiro-Wilk Test
+#' sw(data)
+#'
+#'
 #' @returns A list of the test statistic, p-value, and interpretation aid.
 #' @export
 #'
-#' @examples
+
 sw <- function(x){
   if (!is.numeric(x)) {
     stop("Input x must be a numeric vector.")

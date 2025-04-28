@@ -6,6 +6,14 @@
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #' @param plot A character string specifying which plot(s) to show. Defaults to "all". Can be "qq" for QQ plot,
 #' "density" for density plot, or "hist" for histogram. Users can specify multiple plots as a vector (e.g., c("qq", "hist")).
+#' @examples
+#' #Generate normal data
+#' data <- rnorm(100)
+#' #Plot all visualizations
+#' stat_test(data)
+#'
+#' #Plot only a density plot
+#' stat_test(data, plot = "density")
 #'
 #' @return A series of plots and helpful interpretations for understanding data normality.
 #' @export
