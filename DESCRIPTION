@@ -3,7 +3,7 @@ Title: Visually and Statistically Evaluate Data Normality
 Version: 0.0.0.9000
 Authors@R: 
     person("Rebecca", "Lindgren", , "lindgrenr@usf.edu", role = c("aut", "cre"))
-Description: This packages provides a comprehensive diagnostic of data normality.
+Description: This packages provides a comprehensive diagnostic of data normality. It includes both statistical (e.g. Shapiro-Wilk) and visual (e.g. QQ-Plot) checks to assess data normality.
 License: usethis::use_cc0_license()
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
