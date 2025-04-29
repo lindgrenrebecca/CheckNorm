@@ -1,0 +1,58 @@
+---
+title: "CheckNorm Function Descriptions"
+author: "Rebecca Lindgren"
+date: "2025-04-29"
+output: html_document
+---
+
+# Project Description  
+The purpose of my final project is to create an R package that allows user to quickly and comprehensively evaluate the normality of their data, a *critical* first step in many statistical analyses. I have included the functions for the following "checks" in my package:  
+
+- `stat_test()`, which includes a:
+  + Shapiro-Wilk Test `sw()`
+  + Komogorov-Smirnov Test `ks()`
+  + Anderson-Darling Test `ad()`
+- `vis_check()`, which includes a:
+  + QQ Plot `qqplot`
+  + Density Plot `densplot()`
+  + Histogram with normal curve overlay `normhist`
+- `check_all()`, which runs all above statistical tests *and* visual checks
+
+## Statistical Tests  
+The purpose of the statistical tests function(s) will be to provide users with a statistical evaluation of their data's normality. One issue with visual checks of data normality is that the evaluation is subjective. Users will have to ask themselves: "Is this normal *enough*?" With statistical tests, you can make a decision based on the p-value, an objective cut-off.   
+
+The `stat_test()` function defaults to running all statistical tests (`test = "all"`). However, users can specify if they want just one test run: ex. `test = "sw"` or `test = "ad"`.
+
+The input for the `stat_test()` function needs to be a numeric vector. Missing values in the data are allowed and will be automatically removed (although a warning will be displayed that there are missing values).  
+
+The output will be the result(s) of the statistical test(s) including the test statistic, p-value, and an interpretation based on the p-value. 
+
+Although users can obtain the results for all three statistical tests using the `stat_test()` function, if they only wanted to run one of the tests, they can do so as well with each tests' function:
+
+- Shapiro-Wilk Test `sw()`
+- Komogorov-Smirnov Test `ks()`
+- Anderson-Darling Test `ad()`
+
+For example:
+```{r echo = T, eval = F}
+sw(x)
+```
+
+Another way users can run only one or two tests is to specify which test(s) they would like in the `stat_test()` function. For example:
+```{r echo = T, eval = F}
+stat_test(x, test = "ks") #to run only the Komogorov-Smirnov Test
+```
+or
+```{r echo = T, eval = F}
+stat_test(x, test = c("ks", "ad") #to run the Komogorov-Smirnov Test and the Anderson-Darling test
+```
+
+
+
+## Visual Checks  
+The purpose of providing visual checks of data normality is to allow users to gain a better understanding of the distribution of their data. Although statistical tests tell you, objectively, whether or not the data follows a normal distribution, if it doesn't, it is still valuable for the researcher to know *how* the data deviates from normality. Perhaps it is bi-model or extremely right-skewed. Having that extra knowledge about the data's distribution allows for a better understanding leading to better interpretations.  
+
+The input for the visual checks also needs to be a numerical vector. The output will default to all the plots, but users may specify if they only want one specific plot (`plot = qq` rather than `plot = all`). To aid users in interpreting their visualizations, I will include descriptions of what a "normal" output would look like. For example:
+```{r echo = F, eval = T}
+paste("In a QQplot, data following a normal distribution would align closely along the diagonal line.")
+```
