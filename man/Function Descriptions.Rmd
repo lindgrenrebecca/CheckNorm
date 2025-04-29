@@ -13,9 +13,9 @@ The purpose of my final project is to create an R package that allows user to qu
   + Komogorov-Smirnov Test `ks()`
   + Anderson-Darling Test `ad()`
 - `vis_check()`, which includes a:
-  + QQ Plot `qqplot`
+  + QQ Plot `qqplot()`
   + Density Plot `densplot()`
-  + Histogram with normal curve overlay `normhist`
+  + Histogram with normal curve overlay `normhist()`
 - `check_all()`, which runs all above statistical tests *and* visual checks
 
 ## Statistical Tests  
@@ -52,7 +52,43 @@ stat_test(x, test = c("ks", "ad") #to run the Komogorov-Smirnov Test and the And
 ## Visual Checks  
 The purpose of providing visual checks of data normality is to allow users to gain a better understanding of the distribution of their data. Although statistical tests tell you, objectively, whether or not the data follows a normal distribution, if it doesn't, it is still valuable for the researcher to know *how* the data deviates from normality. Perhaps it is bi-model or extremely right-skewed. Having that extra knowledge about the data's distribution allows for a better understanding leading to better interpretations.  
 
-The input for the visual checks also needs to be a numerical vector. The output will default to all the plots, but users may specify if they only want one specific plot (`plot = qq` rather than `plot = all`). To aid users in interpreting their visualizations, I will include descriptions of what a "normal" output would look like. For example:
-```{r echo = F, eval = T}
-paste("In a QQplot, data following a normal distribution would align closely along the diagonal line.")
+The `vis_check()` function defaults to generating the following three plots (`plot = "all"`):
+
+- QQ-Plot `qqplot()`
+- Density Plot `densplot()`
+- Histogram with normal curve overlay `normhist()`
+
+However, users can specify if they only want one or two plots, similar to the `stat_test()` function. For example:
+```{r echo=T, eval = F}
+vis_check(x, plot = "normhist") #to only generate the histogram
 ```
+or 
+```{r echo=T, eval = F}
+vis_check(x, plot = c("normhist", "qqplot")) #to generate the histogram and QQ-Plot
+```
+
+For ease, users could also run the function for the specific plot they are interested:
+```{r echo = T, eval = F}
+densplot(x)
+```
+
+The input for the visual checks also needs to be a numerical vector. The output will be the requested plot(s) and an interpretation aid that will describe what a normally-distributed output would look like. For example:
+```{r echo = F, eval = T}
+message("Within the QQ-Plot, if the data are normally distributed, the points should fall roughly along the red line.")
+```
+
+## Check All
+The `check_all()` function is the main function of the CheckNorm package. It provides users with the results of the three previously mentioned statistical tests and generates the three previously mentioned visualizations. This function is designed to streamline the evaluation of data normality by providing users with various "checks" all at once, allowing them to combine the results of statistical tests with the visualization output to have a clearer understanding of their data and its normality and distribution.
+
+## Summary
+To summarize, the CheckNorm packages contains the following functions:
+
+- `stat_test()` which defaults to running three statistical evaluations of data normality
+- `vis_check()` which defaults to generating three visualizations aimed at evaluating data normality
+- `check_all()` which provides the results of three statistical tests of data normality and generates three visualizations of data normality
+- `ad()` which runs an Anderson-Darling test of normality
+- `sw()` which runs a Shapiro-Wilk test of normality
+- `ks()` which runs a Komogorov-Smirnov test of normality
+- `qqplot()` which generates a QQ-Plot of the data
+- `densplot()` which generates a density plot of the data
+- `normhist()` which generates a histogram of the data with a normal curve overlay

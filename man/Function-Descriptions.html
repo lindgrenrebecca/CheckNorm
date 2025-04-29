@@ -373,9 +373,9 @@ package:</p>
 </ul></li>
 <li><code>vis_check()</code>, which includes a:
 <ul>
-<li>QQ Plot <code>qqplot</code></li>
+<li>QQ Plot <code>qqplot()</code></li>
 <li>Density Plot <code>densplot()</code></li>
-<li>Histogram with normal curve overlay <code>normhist</code></li>
+<li>Histogram with normal curve overlay <code>normhist()</code></li>
 </ul></li>
 <li><code>check_all()</code>, which runs all above statistical tests
 <em>and</em> visual checks</li>
@@ -426,13 +426,61 @@ for the researcher to know <em>how</em> the data deviates from
 normality. Perhaps it is bi-model or extremely right-skewed. Having that
 extra knowledge about the data’s distribution allows for a better
 understanding leading to better interpretations.</p>
+<p>The <code>vis_check()</code> function defaults to generating the
+following three plots (<code>plot = &quot;all&quot;</code>):</p>
+<ul>
+<li>QQ-Plot <code>qqplot()</code></li>
+<li>Density Plot <code>densplot()</code></li>
+<li>Histogram with normal curve overlay <code>normhist()</code></li>
+</ul>
+<p>However, users can specify if they only want one or two plots,
+similar to the <code>stat_test()</code> function. For example:</p>
+<pre class="r"><code>vis_check(x, plot = &quot;normhist&quot;) #to only generate the histogram</code></pre>
+<p>or</p>
+<pre class="r"><code>vis_check(x, plot = c(&quot;normhist&quot;, &quot;qqplot&quot;)) #to generate the histogram and QQ-Plot</code></pre>
+<p>For ease, users could also run the function for the specific plot
+they are interested:</p>
+<pre class="r"><code>densplot(x)</code></pre>
 <p>The input for the visual checks also needs to be a numerical vector.
-The output will default to all the plots, but users may specify if they
-only want one specific plot (<code>plot = qq</code> rather than
-<code>plot = all</code>). To aid users in interpreting their
-visualizations, I will include descriptions of what a “normal” output
-would look like. For example:</p>
-<pre><code>## [1] &quot;In a QQplot, data following a normal distribution would align closely along the diagonal line.&quot;</code></pre>
+The output will be the requested plot(s) and an interpretation aid that
+will describe what a normally-distributed output would look like. For
+example:</p>
+<pre><code>## Within the QQ-Plot, if the data are normally distributed, the points should fall roughly along the red line.</code></pre>
+</div>
+<div id="check-all" class="section level2">
+<h2>Check All</h2>
+<p>The <code>check_all()</code> function is the main function of the
+CheckNorm package. It provides users with the results of the three
+previously mentioned statistical tests and generates the three
+previously mentioned visualizations. This function is designed to
+streamline the evaluation of data normality by providing users with
+various “checks” all at once, allowing them to combine the results of
+statistical tests with the visualization output to have a clearer
+understanding of their data and its normality and distribution.</p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>To summarize, the CheckNorm packages contains the following
+functions:</p>
+<ul>
+<li><code>stat_test()</code> which defaults to running three statistical
+evaluations of data normality</li>
+<li><code>vis_check()</code> which defaults to generating three
+visualizations aimed at evaluating data normality</li>
+<li><code>check_all()</code> which provides the results of three
+statistical tests of data normality and generates three visualizations
+of data normality</li>
+<li><code>ad()</code> which runs an Anderson-Darling test of
+normality</li>
+<li><code>sw()</code> which runs a Shapiro-Wilk test of normality</li>
+<li><code>ks()</code> which runs a Komogorov-Smirnov test of
+normality</li>
+<li><code>qqplot()</code> which generates a QQ-Plot of the data</li>
+<li><code>densplot()</code> which generates a density plot of the
+data</li>
+<li><code>normhist()</code> which generates a histogram of the data with
+a normal curve overlay</li>
+</ul>
 </div>
 </div>
 
