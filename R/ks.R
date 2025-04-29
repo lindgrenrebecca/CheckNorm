@@ -1,5 +1,7 @@
 #' Kolmogorov-Smirnov Test for Normality
 #'
+#'
+#' @importFrom stats ks.test na.omit sd
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
 #' @examples

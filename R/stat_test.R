@@ -2,10 +2,12 @@
 #'
 #' This function performs multiple statistical tests to evaluate the normality of a numeric vector.
 #' It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests, based on the user's request.
-#'
+#' @importFrom stats na.omit shapiro.test ks.test sd
+#' @importFrom nortest ad.test
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #' @param test A character string specifying which test(s) to run. Defaults to "all". Can be "sw" for Shapiro-Wilk,
 #' "ks" for Kolmogorov-Smirnov, or "ad" for Anderson-Darling. You can specify multiple tests as a vector (e.g., c("sw", "ks")).
+#' @param suppress_message Logical. If TRUE, interpretation messages will be suppressed. Default is FALSE.
 #' @examples
 #'# Generate normal data
 #' data <- rnorm(100)

@@ -2,6 +2,8 @@
 #'
 #' @param x Must be a numeric vector.
 #'
+#' @importFrom graphics hist curve
+#' @importFrom stats dnorm sd
 #' @examples
 #' # Generate Data
 #' data <- rnorm(100)

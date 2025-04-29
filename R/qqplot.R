@@ -2,6 +2,7 @@
 #'
 #' @param x Must be a numeric vector.
 #'
+#' @importFrom stats qqline qqnorm
 #' @returns A QQ-Plot
 #'
 #' @examples

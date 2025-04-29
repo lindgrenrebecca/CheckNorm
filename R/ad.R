@@ -1,5 +1,7 @@
 #' Anderson-Darling Test for Normality
 #'
+#' @importFrom nortest ad.test
+#' @importFrom stats na.omit
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
 #' @examples

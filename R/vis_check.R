@@ -3,6 +3,7 @@
 #' This function provides a variety of visual checks to help users evaluate the normality of data.
 #' Users can specify which plot to view (e.g., QQ plot, density plot, or histogram) or request all of them.
 #'
+#' @importFrom stats na.omit
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #' @param plot A character string specifying which plot(s) to show. Defaults to "all". Can be "qq" for QQ plot,
 #' "density" for density plot, or "hist" for histogram. Users can specify multiple plots as a vector (e.g., c("qq", "hist")).
@@ -10,14 +11,14 @@
 #' #Generate normal data
 #' data <- rnorm(100)
 #' #Plot all visualizations
-#' stat_test(data)
+#' vis_check(data)
 #'
 #' #Plot only a density plot
-#' stat_test(data, plot = "density")
+#' vis_check(data, plot = "density")
 #'
 #' @return A series of plots and helpful interpretations for understanding data normality.
 #' @export
-visual_check <- function(x, plot = "all") {
+vis_check <- function(x, plot = "all") {
 
   if (!is.numeric(x)) {
     stop("Input x must be a numeric vector.")

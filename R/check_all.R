@@ -5,6 +5,7 @@
 #'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
+#' @importFrom stats na.omit
 #' @examples
 #' #Generate Data
 #' data <- rnorm(100)
@@ -36,7 +37,7 @@ check_all <- function(x) {
 
   # Run all visual checks
   message("Visualization interpretation aid:")
-  visual_check(x_clean, plot = "all")
+  vis_check(x_clean, plot = "all")
 
   invisible(NULL)
 }

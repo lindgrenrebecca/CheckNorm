@@ -1,5 +1,6 @@
 #' Density Plot
 #'
+#' @importFrom stats density
 #' @param x Must be a numeric vector.
 #'
 #' @examples

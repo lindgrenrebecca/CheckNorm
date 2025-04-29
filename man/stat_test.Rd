@@ -11,6 +11,8 @@ stat_test(x, test = "all", suppress_message = F)
 
 \item{test}{A character string specifying which test(s) to run. Defaults to "all". Can be "sw" for Shapiro-Wilk,
 "ks" for Kolmogorov-Smirnov, or "ad" for Anderson-Darling. You can specify multiple tests as a vector (e.g., c("sw", "ks")).}
+
+\item{suppress_message}{Logical. If TRUE, interpretation messages will be suppressed. Default is FALSE.}
 }
 \value{
 A list containing the results of the requested tests and a friendly interpretation message.

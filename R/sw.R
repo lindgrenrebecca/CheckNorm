@@ -1,5 +1,7 @@
 #' Shapiro-Wilk Test
 #'
+#' @importFrom stats shapiro.test na.omit
+#'
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #'
 #' @examples
