@@ -10,7 +10,7 @@ sw(x)
 \item{x}{Must be a numeric vector of data values (missing values will be removed automatically).}
 }
 \value{
-A list of the test statistic, p-value, and interpretation aid.
+An interpretation aid and a list containing the test result and p-value.
 }
 \description{
 Shapiro-Wilk Test

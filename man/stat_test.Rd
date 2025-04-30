@@ -10,16 +10,16 @@ stat_test(x, test = "all", suppress_message = F)
 \item{x}{Must be a numeric vector of data values (missing values will be removed automatically).}
 
 \item{test}{A character string specifying which test(s) to run. Defaults to "all". Can be "sw" for Shapiro-Wilk,
-"ks" for Kolmogorov-Smirnov, or "ad" for Anderson-Darling. You can specify multiple tests as a vector (e.g., c("sw", "ks")).}
+"ks" for Kolmogorov-Smirnov, or "ad" for Anderson-Darling. You can also specify multiple tests as a vector (e.g., c("sw", "ks")).}
 
 \item{suppress_message}{Logical. If TRUE, interpretation messages will be suppressed. Default is FALSE.}
 }
 \value{
-A list containing the results of the requested tests and a friendly interpretation message.
+A list containing the results of the requested tests and interpretation aids.
 }
 \description{
 This function performs multiple statistical tests to evaluate the normality of a numeric vector.
-It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests, based on the user's request.
+It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests.
 }
 \examples{
 # Generate normal data

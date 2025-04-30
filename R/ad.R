@@ -12,7 +12,7 @@
 #'
 #'
 #'
-#' @return A list containing the test result, p-value, and interpretation aid.
+#' @return An interpretation aid and a list containing the test result and p-value.
 #' @export
 #'
 ad <- function(x) {

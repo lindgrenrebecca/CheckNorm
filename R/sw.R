@@ -11,7 +11,7 @@
 #' sw(data)
 #'
 #'
-#' @returns A list of the test statistic, p-value, and interpretation aid.
+#' @returns An interpretation aid and a list containing the test result and p-value.
 #' @export
 #'
 
@@ -31,15 +31,14 @@ sw <- function(x){
 
   sw_p_value <- sw_result$p.value
 
-  sw_interpretation <- if (sw_p_value > 0.05) {
-    paste("The Shapiro-Wilk test suggests the data follow a normal distribution (p-value =",
+if (sw_p_value > 0.05) {
+    message("The Shapiro-Wilk test suggests the data follow a normal distribution (p-value = ",
                   round(sw_p_value, 4), ").")
   } else {
-    paste("The Shapiro-Wilk test suggests the data does not follow a normal distribution (p-value =",
+    message("The Shapiro-Wilk test suggests the data does not follow a normal distribution (p-value = ",
                   round(sw_p_value, 4), ").")
   }
 
-  message(sw_interpretation)
 
   return(list(
     statistic = sw_result$statistic,

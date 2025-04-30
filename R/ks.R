@@ -12,7 +12,7 @@
 #'
 #'
 #'
-#' @return A list containing the test result, p-value, and interpretation aid.
+#' @return An interpretation aid and a list containing the test result and p-value.
 #' @export
 #'
 ks <- function(x) {
@@ -34,15 +34,13 @@ ks <- function(x) {
   # Interpretation
   ks_p_value <- ks_result$p.value
 
-  ks_interpretation <- if (ks_p_value > 0.05) {
-    paste("The Kolmogorov-Smirnov Test suggests the data follow a normal distribution (p-value =",
+if (ks_p_value > 0.05) {
+    message("The Kolmogorov-Smirnov Test suggests the data follow a normal distribution (p-value = ",
                   round(ks_p_value, 4), ").")
   } else {
-    paste("The Kolmogorov-Smirnov Test suggests the data does not follow a normal distribution (p-value =",
+    message("The Kolmogorov-Smirnov Test suggests the data does not follow a normal distribution (p-value = ",
                   round(ks_p_value, 4), ").")
   }
-
- message(ks_interpretation)
 
   return(list(
     statistic = ks_result$statistic,
