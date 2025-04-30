@@ -30,15 +30,15 @@ vis_check <- function(x, plot = "all") {
   }
 
   # Default to all plots if "all" is specified
-  if (plot == "all" || "qq" %in% plot) {
+  if (plot == "all" || plot == "qq") {
     qqplot(x_clean)
   }
 
-  if (plot == "all" || "density" %in% plot) {
+  if (plot == "all" || plot == "density") {
     densplot(x_clean)
   }
 
-  if (plot == "all" || "hist" %in% plot) {
+  if (plot == "all" || plot == "hist") {
     normhist(x_clean)
   }
 }

@@ -7,7 +7,6 @@
 #' @param x Must be a numeric vector of data values (missing values will be removed automatically).
 #' @param test A character string specifying which test(s) to run. Defaults to "all". Can be "sw" for Shapiro-Wilk,
 #' "ks" for Kolmogorov-Smirnov, or "ad" for Anderson-Darling. You can also specify multiple tests as a vector (e.g., c("sw", "ks")).
-#' @param suppress_message Logical. If TRUE, interpretation messages will be suppressed. Default is FALSE.
 #' @examples
 #'# Generate normal data
 #' data <- rnorm(100)
@@ -19,7 +18,7 @@
 #'
 #' @return A list containing the results of the requested tests and interpretation aids.
 #' @export
-stat_test <- function(x, test = "all", suppress_message = F) {
+stat_test <- function(x, test = "all") {
 
   if (!is.numeric(x)) {
     stop("Input x must be a numeric vector.")

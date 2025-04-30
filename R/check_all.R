@@ -1,4 +1,4 @@
-#' Run All Statistical Tests and Visual Checks for Data Normality
+#' Run a Variety of Statistical Tests and Visual Checks for Data Normality
 #'
 #' This function combines both statistical tests and visual checks to provide a comprehensive evaluation of the data's normality.
 #' It runs the Shapiro-Wilk, Kolmogorov-Smirnov, and Anderson-Darling tests, followed by providing a QQ plot, density plot, and histogram.
@@ -30,14 +30,11 @@ check_all <- function(x) {
 
   # Run all statistical tests
   message("Running statistical tests for normality:")
-  stat_test(x_clean, test = "all", suppress_message = T)
+  result <- stat_test(x_clean, test = "all")
+  print(result)
 
-  #Adding a blank line just for easier user reading (distinguishing between stat results and visual results)
-  message("")
 
   # Run all visual checks
   message("Visualization interpretation aid:")
   vis_check(x_clean, plot = "all")
-
-  invisible(NULL)
 }

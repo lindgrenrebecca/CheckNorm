@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_all.R
 \name{check_all}
 \alias{check_all}
-\title{Run All Statistical Tests and Visual Checks for Data Normality}
+\title{Run a Variety of Statistical Tests and Visual Checks for Data Normality}
 \usage{
 check_all(x)
 }
