@@ -44,14 +44,19 @@ stat_test <- function(x, test = "all") {
   }
 
   if (test == "all" || test == "ks") {
-    ks <- ks.test(x_clean, "pnorm", mean(x), sd(x))
-    if (ks$p.value > 0.05) {
+    ks <- ks.test(x_clean, "pnorm", mean(x_clean), sd(x_clean))
+    if(!is.na(ks$p.value) && !is.null(ks$p.value)) {
+      if (ks$p.value > 0.05) {
       message("Kolmogorov-Smirnov test suggests that the data may follow a normal distribution (p-value = ",
               round(ks$p.value, 4), ")")
     } else {
       message("Kolmogorov-Smirnov test suggests that the data does not follow a normal distribution (p-value = ",
               round(ks$p.value, 4), ")")
     }
+    } else {
+      message("Kolmogorov-Smirnov test could not compute a valid p-value (likely due to equal values in the data.")
+    }
+
     results$kolmogorov_smirnov <- ks
   }
 
